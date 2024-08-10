@@ -11,6 +11,10 @@ PRODUCT_PACKAGES += \
     XiaomiDolby \
 	DSPVolumeSynchronizer
 
+# DolbyManager
+PRODUCT_PACKAGES += \
+    DolbyManager
+    
 # Dolby Props
 PRODUCT_VENDOR_PROPERTIES += \
     ro.vendor.audio.dolby.dax.support=true \
