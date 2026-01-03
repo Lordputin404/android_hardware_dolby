@@ -11,9 +11,9 @@ PRODUCT_PACKAGES += \
     XiaomiDolby \
 	DSPVolumeSynchronizer
 
-# DolbyManager
+# LunarisDolby
 PRODUCT_PACKAGES += \
-    DolbyManager
+    LunarisDolby
 
 # Dolby Props
 PRODUCT_VENDOR_PROPERTIES += \
