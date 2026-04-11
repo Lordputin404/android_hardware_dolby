@@ -32,7 +32,7 @@ DEVICE_MANIFEST_FILE += \
 # Init
 PRODUCT_PACKAGES += \
     init.dolby.rc
-    
+
 # Media Codec2 Packages
 PRODUCT_PACKAGES += \
     android.hardware.media.c2@1.0.vendor \
@@ -67,5 +67,27 @@ PRODUCT_PROPERTY_OVERRIDES += \
        ro.audio.headtracking_enabled=true \
        ro.audio.spatializer_transaural_enabled_default=false \
        persist.vendor.audio.spatializer.speaker_enabled=true
+
+# Dolby vision Proprietary blobs
+PRODUCT_COPY_FILES += \
+    $(DOLBY_PATH)/proprietary/vendor/etc/dolby_vision.cfg:$(TARGET_COPY_OUT_VENDOR)/etc/dolby_vision.cfg \
+    $(DOLBY_PATH)/proprietary/vendor/etc/init/vendor.dolbyvision.media.c2@1.0-service.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/vendor.dolbyvision.media.c2@1.0-service.rc
+
+PRODUCT_PACKAGES += \
+    c2.dolby.avc.dec \
+    c2.dolby.avc.sec.dec \
+    c2.dolby.client \
+    c2.dolby.egl \
+    c2.dolby.hevc.dec \
+    c2.dolby.hevc.enc \
+    c2.dolby.hevc.sec.dec \
+    c2.dolby.store \
+    libdolbyottcameracontrol \
+    libdolbyvision \
+    dolbycodec2
+
+# Shim
+PRODUCT_PACKAGES += \
+    libcodec2_hidl_shim.vendor
 
 $(call inherit-product, $(DOLBY_PATH)/dolby-vendor.mk)
